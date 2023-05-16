@@ -25,19 +25,29 @@ body {
     font-family: 'Quicksand', sans-serif;
 }
 
-.flex-container {
+.content {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.board {
+.grid-title {
+    margin-bottom: 15px;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+}
+
+.grid {
     width: 500px;
     height: 500px;
     display: grid;
     margin-bottom: 40px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    grid-gap: 1px
+    grid-gap: 1px;
 }
 
 .buttons {
@@ -46,16 +56,16 @@ body {
     gap: 15px;
 }
 
-button {
+button, input[type='color'] {
     font-size: 15px;
     font-weight: bold;
     border: solid 1.5px black;
     border-radius: 2px;
     background-color: none;
-    padding: 8px 10px;
     cursor: pointer;
     transition: transform 0.1 ease-in-out;
     margin-bottom: 30px;
+    width: 150px;
 }
 
 button.active {
@@ -101,7 +111,7 @@ button:active {
 }
 
 .size-value {
-    font-size: 18px;
+    font-size: 19px;
     margin-bottom: 10px;
 }
 
@@ -111,6 +121,8 @@ button:active {
     outline: none;
     border-radius: 50px;
     margin-bottom: 40px;
+    cursor: pointer;
+    width: 250px;
 }
 
 .slider::-webkit-slider-thumb {

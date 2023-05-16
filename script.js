@@ -10,7 +10,7 @@ const sizeSlider = document.getElementById('sizeSlider');
 
 let currentColour = DEFAULT_COLOUR;
 let currentMode = DEFAULT_MODE;
-let click = true;
+let click = false;
 
 function setCurrentColour(newColour) {
     currentColour= newColour; 
@@ -28,25 +28,26 @@ eraserBtn.onclick = () => setCurrentMode('eraser');
 sizeSlider.onmousemove = (e) => updateSizeValue(e.target.value);
 sizeSlider.onchange = (e) => changeSize(e.target.value);
 
-function populateBoard(size) {
-let board = document.querySelector(".board");
-let squares = board.querySelectorAll("div");
-squares.forEach((div) => div.remove());
-board.style.gridTemplateColumns = `repeat(${size}, 1fr)`; 
-board.style.gridTemplateRows = `repeat(${size}, 1fr)`; 
-
+function populateGrid(size) {   
+let grid = document.querySelector(".grid");
+let squares = grid.querySelectorAll("div");
 let amount = size * size;
+
+squares.forEach((div) => div.remove());
+grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`; 
+grid.style.gridTemplateRows = `repeat(${size}, 1fr)`; 
+
 for(let i = 0; i < amount; i++) {
     let square = document.createElement("div");
     square.addEventListener("mouseover", colourSquare);
     square.style.backgroundColor = "white"; 
-    board.insertAdjacentElement("beforeend", square);  
+    grid.insertAdjacentElement("beforeend", square);  
     }
 }
 
 function changeSize(input) {
     if (input >=2 && input <=100) {
-        populateBoard(input);
+        populateGrid(input);
     }
 }
 
@@ -66,9 +67,9 @@ function changeColour(choice) {
     colour = choice; 
 }
 
-function clearBoard() {
-    let board = document.querySelector(".board");
-    let squares = board.querySelectorAll("div");
+function clearGrid() {
+    let grid = document.querySelector(".grid");
+    let squares = grid.querySelectorAll("div");
     squares.forEach((div) => div.style.backgroundColor = "white");
 }
 
@@ -82,11 +83,15 @@ function activateButton(newMode) {
     }
 
     if (newMode === 'rainbow') {
-        rainbowBtn.classList.add('active')
+        rainbowBtn.classList.add('active');
+        colourPicker.style.opacity = '0.5';
+        colourPicker.disabled = true;
       } else if (newMode === 'colour') {
         colourBtn.classList.add('active');
+        colourPicker.style.opacity = '1';
+        colourPicker.disabled = false;
     } else if (newMode === 'eraser') {
-        eraserBtn.classList.add('active'); 
+        eraserBtn.classList.add('active');
     }
 }
 
@@ -94,8 +99,8 @@ function updateSizeValue(value) {
     sizeValue.innerHTML = `${value} x ${value}`;
 }
 
-document.querySelector("body").addEventListener("click", () => {
+document.querySelector(".grid").addEventListener("click", () => {
     click = !click; 
 });
 
-populateBoard(16);
+populateGrid(16);
