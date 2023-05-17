@@ -13,6 +13,7 @@ body {
     min-height: 100vh;
 }
 
+/* Titles Section */
 .title {
     width: 100%;
     height: 100%;
@@ -25,15 +26,16 @@ body {
     font-family: 'Quicksand', sans-serif;
 }
 
+.grid-title {
+    margin-bottom: 15px;
+}
+
+/* Grid Section */
 .content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.grid-title {
-    margin-bottom: 15px;
 }
 
 .flex-container {
@@ -73,6 +75,7 @@ button.active {
     color: white;
 }
 
+/* Input Styling */
 input[type='color'] {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -110,6 +113,7 @@ button:active {
     color: white;
 }
 
+/* Slider Styling */
 .size-value {
     font-size: 19px;
     margin-bottom: 10px;
@@ -140,6 +144,7 @@ button:active {
     border-radius: 50px;
 }
 
+/* Footer Section */
 footer {
     display: flex;
     margin-top: auto;
@@ -151,6 +156,7 @@ footer {
     font-size: 20px;
 }
 
+/* Font Awesome Styling */
 .fa-github {
     color: white;
     font-size: 25px;

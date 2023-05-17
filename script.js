@@ -1,3 +1,4 @@
+// Create Variables
 const DEFAULT_COLOUR = 'black';
 const DEFAULT_MODE = 'colour';
 
@@ -12,15 +13,18 @@ let currentColour = DEFAULT_COLOUR;
 let currentMode = DEFAULT_MODE;
 let click = false;
 
+// Sets the current colour
 function setCurrentColour(newColour) {
     currentColour= newColour; 
 }
 
+// Sets the current mode based on the activateButton function
 function setCurrentMode(newMode) {
     activateButton(newMode);
     currentMode = newMode; 
 }
 
+// Variety of events to execute certain functionalities
 colourPicker.oninput = (e) => setCurrentColour(e.target.value);
 colourBtn.onclick = () => setCurrentMode('colour');
 rainbowBtn.onclick = () => setCurrentMode('rainbow');
@@ -28,6 +32,7 @@ eraserBtn.onclick = () => setCurrentMode('eraser');
 sizeSlider.onmousemove = (e) => updateSizeValue(e.target.value);
 sizeSlider.onchange = (e) => changeSize(e.target.value);
 
+// Creates a new grid of a specified size
 function populateGrid(size) {   
 let grid = document.querySelector(".grid");
 let squares = grid.querySelectorAll("div");
@@ -45,12 +50,14 @@ for(let i = 0; i < amount; i++) {
     }
 }
 
+// Changes the size of the grid
 function changeSize(input) {
     if (input >=2 && input <=100) {
         populateGrid(input);
     }
 }
 
+// Changes the background colour of the calling element based on currentMode and currentColour if click is true
 function colourSquare() {
     if (click) {
         if (currentMode === "rainbow") {
@@ -63,16 +70,19 @@ function colourSquare() {
     }
 }
 
+// Assigns the value of the choice argument to the colour variable
 function changeColour(choice) {
     colour = choice; 
 }
 
+// Clears the grid
 function clearGrid() {
     let grid = document.querySelector(".grid");
     let squares = grid.querySelectorAll("div");
     squares.forEach((div) => div.style.backgroundColor = "white");
 }
 
+// Removes the 'active' class from the button corresponding to currentMode and adds it to the button corresponding to newMode, updates colourPicker opacity and disable state
 function activateButton(newMode) {
     if (currentMode === 'rainbow') {
         rainbowBtn.classList.remove('active');
@@ -95,12 +105,15 @@ function activateButton(newMode) {
     }
 }
 
+// Updates the innerHTML of the sizeValue element to display the value argument in the specified format
 function updateSizeValue(value) {
     sizeValue.innerHTML = `${value} x ${value}`;
 }
 
+// Adds an event listener to the element with class "grid" that toggles the value of the click variable on click
 document.querySelector(".grid").addEventListener("click", () => {
     click = !click; 
 });
 
+// Populates the grid 16 x 16
 populateGrid(16);
