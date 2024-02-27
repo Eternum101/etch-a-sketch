@@ -13,8 +13,17 @@ A browser version of the mechanical drawing toy "Etch-A-Sketch".
 
 ## Screenshots
 
-![](screenshots/landing-page-1.png)
-![](screenshots/landing-page-2.png)
+### Initial Screen
+![](screenshots/initial-screen-etch-a-sketch.png)
+
+### Colour Mode
+![](screenshots/colour-mode-etch-a-sketch.png)
+
+### Rainbow Mode
+![](screenshots/rainbow-mode-etch-a-sketch.png)
+
+### Grid Adjustability
+![](screenshots/grid-adjustability-etch-a-sketch.png)
 
 [Back to Top](#etch-a-sketch)
 
