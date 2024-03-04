@@ -1,6 +1,6 @@
 # Etch A Sketch
 
-[View Demo](https://eternum101.github.io/etch-a-sketch/)
+🔗 [View Demo](https://eternum101.github.io/etch-a-sketch/)
 
 ## Table of Contents
 - [About The Project](#about-the-project)
